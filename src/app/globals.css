@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   StackCV Design System — Premium startup grade
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg:            #fafafa;
+  --bg-subtle:     #f4f4f5;
+  --bg-muted:      #e4e4e7;
+  --bg-elevated:   #ffffff;
+  --bg-nested:     #f4f4f5;
+  --input-bg:      #ffffff;
+  --fg:            #09090b;
+  --fg-muted:      #52525b;
+  --fg-faint:      #a1a1aa;
+  --border:        #e4e4e7;
+  --border-strong: #d4d4d8;
+  --accent:        #059669;
+  --accent-hover:  #047857;
+  --accent-muted:  #d1fae5;
+  --accent-subtle: #ecfdf5;
+  --shadow-sm:     0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-md:     0 4px 16px rgb(0 0 0 / 0.06);
+  --shadow-lg:     0 12px 40px rgb(0 0 0 / 0.08);
+  --radius:        12px;
+  --header-h:      64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #09090b;
+    --bg-subtle:     #18181b;
+    --bg-muted:      #27272a;
+    --bg-elevated:   #18181b;
+    --bg-nested:     #27272a;
+    --input-bg:      #09090b;
+    --fg:            #fafafa;
+    --fg-muted:      #a1a1aa;
+    --fg-faint:      #71717a;
+    --border:        #27272a;
+    --border-strong: #3f3f46;
+    --accent:        #10b981;
+    --accent-hover:  #34d399;
+    --accent-muted:  #064e3b;
+    --accent-subtle: #022c22;
+    --shadow-sm:     0 1px 2px rgb(0 0 0 / 0.2);
+    --shadow-md:     0 4px 16px rgb(0 0 0 / 0.3);
+    --shadow-lg:     0 12px 40px rgb(0 0 0 / 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+body {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--fg);
+}
+
+/* Theme utility aliases */
+.text-themed { color: var(--fg); }
+.text-themed-muted { color: var(--fg-muted); }
+.text-themed-faint { color: var(--fg-faint); }
+.border-themed { border-color: var(--border); }
+.bg-themed { background-color: var(--bg); }
+.bg-themed-subtle { background-color: var(--bg-subtle); }
+.bg-themed-elevated { background-color: var(--bg-elevated); }
+
+/* ── Form fields ─────────────────────────────────────────────────── */
+.field-input {
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--input-bg);
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+textarea.field-input {
+  height: auto;
+  padding: 12px 14px;
+  line-height: 1.5;
+  min-height: 100px;
+}
+.field-input::placeholder { color: var(--fg-faint); }
+.field-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+select.field-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+select.field-input option {
+  background: var(--bg-elevated);
+  color: var(--fg);
+}
+.field-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Nested form blocks inside builder */
+.form-block {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-nested);
+  padding: 1.25rem;
+}
+.form-block-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.form-add-btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  border: 2px dashed var(--border-strong);
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  background: transparent;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+.form-add-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-subtle);
+}
+.form-delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, #ef4444 30%, var(--border));
+  background: color-mix(in srgb, #ef4444 8%, var(--bg-nested));
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+  transition: background-color 0.15s;
+}
+.form-delete-btn:hover {
+  background: color-mix(in srgb, #ef4444 15%, var(--bg-nested));
+}
+.form-hint-box {
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+  background: var(--accent-subtle);
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+.form-hint-box strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Resume document (always print-white) ────────────────────────── */
+.resume-document {
+  background: #fff !important;
+  color: #18181b !important;
+}
+
+/* ── Grid pattern (hero backgrounds) ───────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 100%);
+}
+
+.bg-glow {
+  background: radial-gradient(
+    600px circle at 50% -20%,
+    color-mix(in srgb, var(--accent) 12%, transparent),
+    transparent 70%
+  );
+}
+
+/* ── Typography utilities ────────────────────────────────────────── */
+.text-balance { text-wrap: balance; }
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+/* ── Print ───────────────────────────────────────────────────────── */
+@media print {
+  body { background: #fff !important; }
+  .no-print { display: none !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .resume-document,
+  .resume-document * {
+    color-scheme: light;
+  }
+}
