@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StackCV — Презентация</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; background: #050505; color: #fafafa; font-family: "Segoe UI", system-ui, sans-serif; }
+    .deck { height: 100vh; position: relative; }
+    .slide {
+      position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center;
+      padding: 48px 72px; background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,185,129,.12), transparent 60%), #050505;
+    }
+    .slide.active { display: flex; animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+    h1 span { background: linear-gradient(135deg, #10b981, #0d9488); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); color: #34d399; margin-bottom: 24px; font-weight: 700; }
+    p, li { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.6; color: #d4d4d8; }
+    ul { margin: 16px 0 0 24px; }
+    li { margin-bottom: 10px; }
+    .subtitle { margin-top: 16px; font-size: 1.15rem; color: #a1a1aa; }
+    .links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .links a {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
+      background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.35); color: #6ee7b7;
+      text-decoration: none; font-weight: 600; font-size: .95rem;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+    .card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+      padding: 20px;
+    }
+    .card strong { display: block; color: #10b981; margin-bottom: 6px; font-size: 1rem; }
+    .card span { font-size: .9rem; color: #a1a1aa; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; max-height: 52vh; }
+    .shots img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); object-fit: cover; object-position: top; max-height: 48vh; }
+    .shots.single img { grid-column: 1 / -1; max-height: 55vh; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 1rem; }
+    th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    th { color: #10b981; font-weight: 600; }
+    pre {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 12px;
+      padding: 20px; margin-top: 16px; font-size: .9rem; line-height: 1.5; color: #a1a1aa; overflow: auto;
+    }
+    .badge {
+      display: inline-block; margin-bottom: 20px; padding: 6px 14px; border-radius: 999px;
+      background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.25);
+      color: #6ee7b7; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .nav {
+      position: fixed; bottom: 24px; right: 24px; display: flex; align-items: center; gap: 12px; z-index: 10;
+    }
+    .nav button {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.06); color: #fff; cursor: pointer; font-size: 1.2rem;
+    }
+    .nav button:hover { background: rgba(16,185,129,.2); border-color: #10b981; }
+    .counter { font-size: .85rem; color: #71717a; min-width: 48px; text-align: center; }
+    .progress {
+      position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #10b981, #0d9488);
+      transition: width .3s ease; z-index: 10;
+    }
+    kbd { background: rgba(255,255,255,.08); padding: 2px 8px; border-radius: 4px; font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="deck" id="deck">
+
+    <section class="slide active">
+      <span class="badge">Практическая работа</span>
+      <h1><span>StackCV</span></h1>
+      <p class="subtitle">AI-платформа для создания резюме по HR-стандартам</p>
+      <div class="links">
+        <a href="https://stackcv.bakha.me" target="_blank">🌐 stackcv.bakha.me</a>
+        <a href="https://github.com/Shukurov777/stackcv" target="_blank">📁 GitHub</a>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Задача проекта</h2>
+      <ul>
+        <li>Создать веб-платформу для профессиональных резюме</li>
+        <li>Соответствие HR-стандартам и ATS-системам</li>
+        <li>ИИ для улучшения текста и оценки качества</li>
+        <li>Редактор оформления и экспорт PDF A4</li>
+        <li>Production-деплой на реальный домен</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Ключевой функционал</h2>
+      <div class="grid">
+        <div class="card"><strong>3 HR-шаблона</strong><span>Modern · Classic · Minimal</span></div>
+        <div class="card"><strong>Редактор дизайна</strong><span>Шрифт, цвет, фото, фильтры</span></div>
+        <div class="card"><strong>6 примеров</strong><span>Frontend, PM, маркетинг…</span></div>
+        <div class="card"><strong>ИИ DeepSeek</strong><span>Генерация + оценка резюме</span></div>
+        <div class="card"><strong>PDF A4</strong><span>Скачивание в один клик</span></div>
+        <div class="card"><strong>Auth</strong><span>Email + Google OAuth</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Главная страница</h2>
+      <div class="shots single"><img src="../screenshots/01-landing-hero.png" alt="Landing" /></div>
+    </section>
+
+    <section class="slide">
+      <h2>Конструктор резюме</h2>
+      <div class="shots single"><img src="../screenshots/02-builder.png" alt="Builder" /></div>
+    </section>
+
+    <section class="slide">
+      <h2>Шаблоны и вход</h2>
+      <div class="shots">
+        <img src="../screenshots/04-templates.png" alt="Templates" />
+        <img src="../screenshots/03-login-google.png" alt="Login" />
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Технологический стек</h2>
+      <table>
+        <tr><th>Слой</th><th>Технологии</th></tr>
+        <tr><td>Frontend</td><td>Next.js 16, React 19, TypeScript, Tailwind CSS v4</td></tr>
+        <tr><td>Backend</td><td>Next.js API Routes, Prisma, SQLite</td></tr>
+        <tr><td>Auth</td><td>NextAuth.js (Credentials + Google)</td></tr>
+        <tr><td>AI</td><td>DeepSeek API</td></tr>
+        <tr><td>PDF</td><td>html2canvas + jsPDF</td></tr>
+        <tr><td>Deploy</td><td>PM2, Nginx, SSL, VPS</td></tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <h2>Архитектура</h2>
+      <pre>Пользователь
+    ↓
+Nginx (SSL) — stackcv.bakha.me
+    ↓
+Next.js + PM2 (порт 3010)
+    ↓
+┌─────────────┬──────────────┬─────────────┐
+│  /generate  │   /score     │  /resumes   │
+│  (DeepSeek) │  (DeepSeek)  │  (Prisma)   │
+└─────────────┴──────────────┴─────────────┘
+                    ↓
+              SQLite (prod.db)</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Результат</h2>
+      <table>
+        <tr><th>Показатель</th><th>Значение</th></tr>
+        <tr><td>Production URL</td><td>stackcv.bakha.me ✅</td></tr>
+        <tr><td>Страниц / API</td><td>8+ страниц, 6 API routes</td></tr>
+        <tr><td>Шаблонов / примеров</td><td>3 / 6</td></tr>
+        <tr><td>GitHub</td><td>Публичный репозиторий + README</td></tr>
+      </table>
+    </section>
+
+    <section class="slide">
+      <span class="badge">Спасибо</span>
+      <h1><span>StackCV</span></h1>
+      <p class="subtitle">Live · GitHub · README со скриншотами</p>
+      <div class="links">
+        <a href="https://stackcv.bakha.me" target="_blank">🌐 Демо</a>
+        <a href="https://github.com/Shukurov777/stackcv" target="_blank">📁 Код</a>
+      </div>
+      <p style="margin-top:32px;color:#71717a;font-size:.9rem">← → или пробел для навигации · F11 — полный экран</p>
+    </section>
+  </div>
+
+  <div class="nav">
+    <button type="button" id="prev" aria-label="Назад">←</button>
+    <span class="counter" id="counter">1 / 10</span>
+    <button type="button" id="next" aria-label="Вперёд">→</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    let i = 0;
+    const progress = document.getElementById("progress");
+    const counter = document.getElementById("counter");
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, j) => s.classList.toggle("active", j === i));
+      progress.style.width = ((i + 1) / slides.length * 100) + "%";
+      counter.textContent = (i + 1) + " / " + slides.length;
+    }
+    document.getElementById("prev").onclick = () => show(i - 1);
+    document.getElementById("next").onclick = () => show(i + 1);
+    document.onkeydown = (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); show(i + 1); }
+      if (e.key === "ArrowLeft") show(i - 1);
+    };
+    show(0);
+  </script>
+</body>
+</html>

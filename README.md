@@ -111,6 +111,17 @@ pm2 start ecosystem.config.cjs
 
 ---
 
+## Презентация
+
+Для сдачи практики / защиты проекта:
+
+| Формат | Файл | Как использовать |
+|--------|------|------------------|
+| **HTML (сразу показать)** | [`docs/presentation/index.html`](docs/presentation/index.html) | Открыть в браузере, F11 — полный экран, ← → для слайдов |
+| **Marp → PDF/PPTX** | [`docs/presentation/StackCV-Presentation.md`](docs/presentation/StackCV-Presentation.md) | VS Code + расширение [Marp](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) → Export PDF |
+
+---
+
 ## Автор
 
 Проект разработан как **портфолио-кейс** — full-stack веб-приложение с AI, auth, PDF и production-деплоем.
