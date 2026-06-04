@@ -54,7 +54,7 @@ StackCV — полноценный веб-продукт: конструктор
 ## Быстрый старт (локально)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/stackcv.git
+git clone https://github.com/Shukurov777/stackcv.git
 cd stackcv
 npm install
 cp .env.example .env.local
